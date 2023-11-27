@@ -6,15 +6,12 @@ import pyperclip as pc
 def Calculate(e=None):
     sf = int(sigfig.get())
     ex = (expoQ.get()>0)
-    print(f"{ex=}, {sf=}")
     expr = expression.get()
     answer.config(text=calc(expr, exp=ex, sigfig=sf))
     
 def CopyInput(e):
-    print("copying input")
     pc.copy(expression.get())
 def CopyOutput(e):
-    print("copying output")
     pc.copy(answer.cget("text"))
     
     
@@ -58,7 +55,6 @@ help1 = ttk.Label(prefsF, text=" ⌘C\n⇧⌘C",justify="right",foreground="#888
 help2 = ttk.Label(prefsF, text=" copy input\ncopy output",justify="left",foreground="#888")
 help1.pack(side="left",anchor="e")
 help2.pack(side="left",anchor="w")
-print(top.winfo_children())
 
 
 root.mainloop()
